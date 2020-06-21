@@ -1,18 +1,31 @@
 import React from 'react';
 import Chart from 'chart.js';
+import { EventEmitter } from '../EventEmitter';
 
 export default class GraphBar extends React.Component {
     constructor(props) {
         super(props);
+
+        this.state = {
+            dataGraph: []
+        };
+
         this.canvasRef = React.createRef();
+    }
+
+    changeData(data) {
+        this.myChart.data.datasets = data;
+        this.myChart.update();
     }
 
     componentDidMount() {
         Chart.defaults.global.defaultFontFamily = "Roboto, sans-serif";
 
+        EventEmitter.subscribe('changeGaphData',  value => this.changeData(value));
+
         this.myChart = new Chart(this.canvasRef.current, {
             type: 'horizontalBar',
-            data: {
+            /*data: {
                 //labels: this.props.data.map(d => d.label),
                 labels: ['salario'],
                 datasets: [{
@@ -33,7 +46,7 @@ export default class GraphBar extends React.Component {
                     data: [77],
                     backgroundColor: '#16a085'
                 }]
-            },
+            },*/
             options: {
                 responsive: true,
                 tooltips: {
