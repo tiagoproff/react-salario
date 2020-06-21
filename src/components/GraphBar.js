@@ -9,7 +9,6 @@ export default class GraphBar extends React.Component {
 
     componentDidMount() {
         Chart.defaults.global.defaultFontFamily = "Roboto, sans-serif";
-        console.log(this.props.data.map(d => d.value));
 
         this.myChart = new Chart(this.canvasRef.current, {
             type: 'horizontalBar',
@@ -20,32 +19,39 @@ export default class GraphBar extends React.Component {
                     //label: this.props.title,
                     //data: this.props.data.map(d => d.value),
                     data: [8],
-                    backgroundColor: '#e67e22',
-                    showLine: false
+                    backgroundColor: '#e67e22'
                 },
                 {
                     //label: this.props.title,
                     //data: this.props.data.map(d => d.value),
                     data: [15],
-                    backgroundColor: '#c0392b',
-                    showLine: false
+                    backgroundColor: '#c0392b'
                 },
                 {
                     //label: this.props.title,
                     //data: this.props.data.map(d => d.value),
-                    data: [67],
-                    backgroundColor: '#16a085',
-                    showLine: false
+                    data: [77],
+                    backgroundColor: '#16a085'
                 }]
             },
             options: {
                 responsive: true,
+                tooltips: {
+                    enabled: false
+                },
                 legend: {
                     display: false
                 },
+                showLines: false,
                 scales: {
                     xAxes: [{
-                        stacked: false,
+                        stacked: true,
+                        ticks: {
+                            display: false
+                        },
+                        gridLines: {
+                            display: false,
+                        },
                     }],
                     yAxes: [{
                         stacked: true,
