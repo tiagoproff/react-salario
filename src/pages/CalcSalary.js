@@ -5,7 +5,7 @@ function CalcSalary() {
         <div className="row">
             <form className="col s12">
                 <div className="input-field col s12">
-                    <input id="salariobruto" type="text" className="validate" />
+                    <input id="salariobruto" type="number" min="1" step="10" className="validate" />
                     <label for="salariobruto">Salário Bruto</label>
                 </div>
                 <div className="row">
