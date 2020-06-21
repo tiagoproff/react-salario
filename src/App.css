@@ -3,7 +3,7 @@
 }
 
 .App-logo {
-  height: 40vmin;
+  height: 100%;
   pointer-events: none;
 }
 
@@ -26,6 +26,11 @@
 
 .App-link {
   color: #61dafb;
+}
+
+.chartBar {
+  width: 100% !important;
+  height: 30px !important;
 }
 
 @keyframes App-logo-spin {
